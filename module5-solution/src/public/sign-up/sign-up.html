@@ -1,0 +1,49 @@
+<div class="container form">
+    <h2>Sign Up For The Newsletter</h2>
+    <form name="signUpForm" novalidate>
+      <br>
+      <input type="text" name="firstname" placeholder="First name" 
+        required 
+        ng-model="signUpCtrl.formData.firstname"/>
+        <span ng-if="signUpForm.firstname.$error.required && signUpForm.firstname.$touched">
+            Please enter a first name.
+        </span>
+      <br>
+
+      <input type="text" name="lastname" placeholder="Last name" 
+        required 
+        ng-model="signUpCtrl.formData.lastname"/>
+        <span ng-if="signUpForm.lastname.$error.required && signUpForm.lastname.$touched">
+            Please enter a last name.
+        </span>
+        <br>
+
+      <input type="email" name="emailaddress" placeholder="Email" 
+        required 
+        ng-model="signUpCtrl.formData.emailaddress"/>
+        <span ng-if="signUpForm.emailaddress.$invalid && signUpForm.emailaddress.$touched"> 
+            Please enter an email address.
+        </span>
+        <br>
+
+      <input type="text" name="phonenumber" placeholder="Phone number"
+        required
+        pattern="(\d{3})-(\d{3})-(\d{4})" 
+        ng-model="signUpCtrl.formData.phonenumber"/>
+        <span ng-if="signUpForm.phonenumber.$invalid && signUpForm.phonenumber.$touched">
+            Phone must be in the format ###-###-####.
+        </span>
+        <br>
+
+      <input type="text" name="favoritedish" placeholder="Favorite dish" 
+        ng-model="signUpCtrl.formData.favoritedish"/>
+        <span ng-if="signUpCtrl.favoriteDishInvalid">
+            No such menu number exists.
+        </span>
+        <br>
+        <br>
+
+      <button ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.signUp()">Sign Up</button>
+    </form>
+    <h3 ng-if="signUpCtrl.formSubmitted">Your information has been saved</h3>
+  </div>

@@ -1,0 +1,26 @@
+<div class="container form">
+    <h2>Sign Up Data below:</h2>
+    <div class="col-md-4">
+      <h4 ng-if="!myInfoCtrl.signUpData">Not Signed Up yet. <a ui-sref="public.signup">Sign up now!</a></h4>
+      <div ng-if="myInfoCtrl.signUpData">
+        <div>First Name: {{myInfoCtrl.signUpData.firstname}}</div>
+        <div>Last Name: {{myInfoCtrl.signUpData.lastname}}</div>
+        <div>Email Address: {{myInfoCtrl.signUpData.emailaddress}}</div>
+        <div>Phone Number: {{myInfoCtrl.signUpData.phonenumber}}</div>
+        <div>Favorite Dish:</div>
+        <div class="menu-item-tile col-md-6">
+          <br/>
+          <div class="menu-item-photo">
+            <div>{{myInfoCtrl.signUpData.favoritedish.short_name}}</div>
+            <img class="img-responsive" width="250" height="150"
+            ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.signUpData.favoritedish.short_name}}.jpg" 
+            alt="{{myInfoCtrl.signUpData.favoritedish.name}}"/>
+          </div>
+          <div class="menu-item-description">
+            <h3 class="menu-item-title">{{myInfoCtrl.signUpData.favoritedish.name}}</h3>
+            <p class="menu-item-details">{{myInfoCtrl.signUpData.favoritedish.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
